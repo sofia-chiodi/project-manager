@@ -21,12 +21,17 @@ function App() {
 
   function handleProjectAdded(projectData) {
     setProjectsState((prevState) => {
+      const projectId = Math.random();
       const newProject = {
         ...projectData,
-        id: Math.random(),
+        id: projectId,
       };
 
-      return { ...prevState, projects: [...prevState.projects, newProject] };
+      return {
+        ...prevState,
+        selectedProjectId: projectId,
+        projects: [...prevState.projects, newProject],
+      };
     });
   }
 
